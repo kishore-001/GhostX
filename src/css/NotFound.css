@@ -1,0 +1,351 @@
+.notfound-container {
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, #000000 0%, #1a0000 50%, #000000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.notfound-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 0, 0, 0.1) 0%, transparent 50%);
+  animation: pulse 4s ease-in-out infinite alternate;
+}
+
+.error-display {
+  max-width: 800px;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+}
+
+.terminal-window {
+  background: #000;
+  border: 2px solid #ff0000;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.5), inset 0 0 30px rgba(255, 0, 0, 0.1);
+  animation: slideIn 1s ease-out;
+}
+
+.terminal-header {
+  background: #333;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid #ff0000;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff0000;
+  animation: pulse 2s infinite;
+}
+
+.terminal-title {
+  margin-left: auto;
+  color: #ff0000;
+  font-weight: bold;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+.terminal-content {
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-animation {
+  margin-bottom: 2rem;
+}
+
+.error-code {
+  font-size: 6rem;
+  font-weight: bold;
+  color: #ff0000;
+  text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000;
+  margin-bottom: 1rem;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  animation: glitch-1 0.5s infinite;
+  color: #ff00ff;
+  z-index: -1;
+}
+
+.glitch::after {
+  animation: glitch-2 0.5s infinite;
+  color: #00ffff;
+  z-index: -2;
+}
+
+@keyframes glitch-1 {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@keyframes glitch-2 {
+  0%,
+  100% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(2px, 2px);
+  }
+  40% {
+    transform: translate(2px, -2px);
+  }
+  60% {
+    transform: translate(-2px, 2px);
+  }
+  80% {
+    transform: translate(-2px, -2px);
+  }
+}
+
+.error-details {
+  text-align: left;
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid #ff0000;
+  border-radius: 4px;
+  padding: 1rem;
+  font-family: "Courier New", monospace;
+  margin-top: 1rem;
+}
+
+.error-details p {
+  color: #ff6666;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.error-message-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.error-title {
+  color: #ff0000;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 15px #ff0000;
+}
+
+.error-message {
+  color: #ff6666;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.error-description {
+  color: #cccccc;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.error-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.return-btn {
+  padding: 0.8rem 2rem;
+  border: 2px solid;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.return-btn.primary {
+  background: #ff0000;
+  color: #fff;
+  border-color: #ff0000;
+}
+
+.return-btn.primary:hover {
+  background: transparent;
+  color: #ff0000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.return-btn.secondary {
+  background: transparent;
+  color: #ff6666;
+  border-color: #ff6666;
+}
+
+.return-btn.secondary:hover {
+  background: #ff6666;
+  color: #000;
+  box-shadow: 0 0 20px rgba(255, 102, 102, 0.5);
+}
+
+.security-info {
+  background: linear-gradient(135deg, #1a0000 0%, #2a0000 100%);
+  border: 1px solid #ff0000;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.security-info h3 {
+  color: #ff0000;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.3rem;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+.security-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.security-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  background: rgba(255, 0, 0, 0.1);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.security-label {
+  color: #cccccc;
+  font-weight: bold;
+}
+
+.security-value {
+  font-weight: bold;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+.security-value.error {
+  background: #ff0000;
+  color: #fff;
+}
+
+.security-value.warning {
+  background: #ff6600;
+  color: #fff;
+}
+
+.security-value.success {
+  background: #00ff00;
+  color: #000;
+}
+
+.security-value.info {
+  background: #0066ff;
+  color: #fff;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .notfound-container {
+    padding: 1rem;
+  }
+
+  .error-code {
+    font-size: 4rem;
+  }
+
+  .error-title {
+    font-size: 1.5rem;
+  }
+
+  .error-message {
+    font-size: 1rem;
+  }
+
+  .error-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .return-btn {
+    width: 200px;
+    justify-content: center;
+  }
+
+  .security-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .security-item {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-code {
+    font-size: 3rem;
+  }
+
+  .terminal-content {
+    padding: 1rem;
+  }
+
+  .security-info {
+    padding: 1rem;
+  }
+
+  .error-details {
+    font-size: 0.8rem;
+  }
+}
